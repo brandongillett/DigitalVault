@@ -1,0 +1,184 @@
+{% extends "base.html" %} {% block title %}Dashboard{% endblock %} 
+{% block content%}
+<link
+rel="stylesheet"
+href="{{ url_for('static',filename='css/dashboard.css') }}"
+/>
+
+<div class="pass-manager">
+  <div class="left-bar">
+    <div class="left-content">
+      <ul class="action-list">
+        <li class="item">
+          <a href="/dashboard/passwords">
+            <i class="fa-solid fa-key"></i>
+            <span> Passwords</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="/dashboard/cards">
+            <i class="selected fa-solid fa-credit-card"></i>
+            <span class="selected"> Cards</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-content">
+    <h1>Cards</h1>
+    <div class="content-categories">
+      <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="password-container">
+      <div class="password-header">
+        <span class="header-item">Type</span>
+        <span class="header-item">Number</span>
+        <span class="header-item">Expiration</span>
+        <span class="header-item">CVC</span>
+        <div class="button-group">
+          <button type="button" class="add-button" onClick="showNewContainer()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+
+          <div class="new-container" id="new-container">
+            <div class="new-edit-content">
+              <h2>Add Card</h2>
+              <form method="post">
+                <input type="hidden" name="form_type" value="new">
+                <label for="cardType">Card Type:</label>
+                <select id="cardType" name="cardType" required>
+                  <option value="">Select card type</option>
+                  <option value="Visa">Visa</option>
+                  <option value="MasterCard">MasterCard</option>
+                  <option value="American Express">American Express</option>
+                  <option value="Discover">Discover</option>
+                </select>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+                <label for="expiration">Expiration:</label>
+                <input type="text" id="expiration" name="expiration" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+                <label for="cvc">CVC:</label>
+                <input type="text" id="cvc" name="cvc" required>
+                <button type="submit">Add</button>
+                <button type="button" onClick="hideNewContainer()">Cancel</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {% set cards = user.getCards() %}
+      {% if cards %}
+        {% for card in cards %}
+          <div class="passwords">
+            <span class="password-item">{{ card['cardType'] }}</span>
+            <span class="password-item">{{ card['cardNumber'] }} <button class="copy-button" onClick="copyToClipboard('{{ card['cardType'] }}')"><i class="fa-solid fa-copy"></i></button></span>
+            <span class="password-item">{{ card['expiration'] }} <button class="copy-button" onClick="copyToClipboard('{{ card['cardType'] }}')"><i class="fa-solid fa-copy"></i></button></span>
+            <span class="password-item">{{ card['cvc'] }}</span>
+            <div class="dropdown-settings">
+              <button class="settings-button">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <div class="settings-content">
+                <button class="settings" onclick="showEditContainer({{ card }})"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                <button class="settings" onClick="deleteCard({{ card['id'] }})"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="edit-container" id="edit-container">
+            <div class="new-edit-content">
+              <h2>Edit Card</h2>
+              <form method="post">
+                <input type="hidden" name="form_type" value="edit">
+                <input type="hidden" name="cardId">
+                <label for="edit-cardType">Card Type:</label>
+                <select id="edit-cardType" name="cardType" required>
+                  <option value="">Select card type</option>
+                  <option value="Visa">Visa</option>
+                  <option value="MasterCard">MasterCard</option>
+                  <option value="American Express">American Express</option>
+                  <option value="Discover">Discover</option>
+                </select>
+                <label for="edit-cardNumber">Card Number:</label>
+                <input type="text" id="edit-cardNumber" name="cardNumber" required>
+                <label for="edit-expiration">Expiration:</label>
+                <input type="text" id="edit-expiration" name="expiration" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+                <label for="edit-cvc">CVC:</label>
+                <input type="text" id="edit-cvc" name="cvc" required>
+                <button type="submit">Save</button>
+                <button type="button" onClick="hideEditContainer()">Cancel</button>
+              </form>
+            </div>
+          </div>
+
+        {% endfor %}
+      {% else %}
+        <div class="none-passwords">
+          <span class="label-text">No cards found...</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  
+    
+  </div>
+
+  <script>
+  function showNewContainer() {
+    const container = document.getElementById('new-container');
+    container.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideNewContainer() {
+    const container = document.getElementById('new-container');
+    container.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function showEditContainer(card) {
+    const container = document.getElementById('edit-container');
+    container.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    const cardIdField = document.querySelector('#edit-container input[name="cardId"]');
+    const cardType = document.getElementById('edit-cardType');
+    const cardNumberField = document.getElementById('edit-cardNumber');
+    const expirationField = document.getElementById('edit-expiration');
+    const cvcField = document.getElementById('edit-cvc');
+
+    cardIdField.value = card.id;
+    cardType.value = card.cardType;
+    cardNumberField.value = card.cardNumber;
+    expirationField.value = card.expiration;
+    cvcField.value = card.cvc;
+  }
+
+  function hideEditContainer() {
+    const container = document.getElementById('edit-container');
+    container.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function copyToClipboard(password) {
+    const tempInput = document.createElement('input');
+    tempInput.value = password;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    showFlashMessage('Copied to clipboard','success');
+  }
+
+  function deleteCard(cardId) {
+    const endpoint = "/delete-card?cardId=" + cardId;
+    window.location.href = endpoint;
+  }
+  </script>
+{% endblock %}
