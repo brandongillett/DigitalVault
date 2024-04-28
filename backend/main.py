@@ -4,10 +4,9 @@ from datetime import timedelta
 from api.models import Token,User,NewUser
 from api.auth import get_current_active_user,authenticate_user,create_access_token,new_user
 from api.encryption import new_password,get_passwords,del_password,edit_password,genFernetKey,new_card,edit_card,get_cards,del_card
-from api.config import ACCESS_TOKEN_EXPIRE_MINUTES,createTables,TITLE,DESCRIPTION,VERSION,DOCS
+from api.config import ACCESS_TOKEN_EXPIRE_MINUTES,TITLE,DESCRIPTION,VERSION,DOCS
 
 app = FastAPI(title=TITLE,description=DESCRIPTION,version=VERSION,docs_url=DOCS)
-createTables()
 
 @app.post("/createAccount")
 async def addAccount(user: NewUser):
