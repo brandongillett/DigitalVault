@@ -1,0 +1,10 @@
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe.config
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.pdb
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.AssemblyReference.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.DigitalVault.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.Properties.Resources.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.GenerateResource.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.CoreCompileInputs.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.pdb

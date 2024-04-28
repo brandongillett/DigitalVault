@@ -3,6 +3,7 @@ services:
   mariadb:
     container_name: mariadb
     image: mariadb:10.5.8
+    restart: always
     ports:
       - "32000:3306"
     environment:
@@ -17,13 +18,14 @@ services:
     container_name: fastapi
     build:
       context: ./backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     restart: always
     depends_on:
       - mariadb
-    environment:
-      - DATABASE_URL=mysql+mysqlconnector://root:DigitalVault123@mariadb/CloudPass
     ports:
       - 8000:8000
+    volumes:
+      - ./backend:/app
     networks:
       - mynetwork
 
@@ -36,6 +38,8 @@ services:
       - fastapi
     expose:
       - 5000
+    volumes:
+      - ./frontend:/app
     networks:
       - mynetwork
 
