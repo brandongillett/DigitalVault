@@ -10,31 +10,25 @@ SECRET_KEY = "DigitalVault123"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 #Database Config - host is mariadb - Password is DigitalVault123
+db_config = {
+        'user': 'root',
+        'password': 'DigitalVault123',
+        'host': 'mariadb',
+        'port': '3306',
+        'database': 'DigitalVault'
+    }
 
-
-def connectDB():
-    db_config = {
-            'user': 'root',
-            'password': 'DigitalVault123',
-            'host': 'mariadb',
-            'port': '3306',
-            'database': 'DigitalVault'
-        }
+def connectDB(config):
     try:
-        dbPoolSize = 3
-        dbPool = pooling.MySQLConnectionPool(pool_name="pool",
-                                            pool_size=dbPoolSize,
-                                            pool_reset_session=True,
-                                            **db_config)
-        db = dbPool.get_connection()
+        dbConnection = pooling.MySQLConnectionPool(pool_name="pool",
+                                                    pool_size=3,
+                                                    pool_reset_session=True,
+                                                    **db_config)
         print("[OK] Successfully connected to the database.")
     except:
         print("[ERROR] Failed to connect to the database.")
         return None
-    return db
-    
-db = connectDB()
-
+    return dbConnection
 
 # def createTables():
 #      cursor = db.cursor()

@@ -7,8 +7,6 @@ services:
     ports:
       - "32000:3306"
     environment:
-      MARIADB_AUTO_UPGRADE: "1"
-      MARIADB_INITDB_SKIP_TZINFO: "1"
       MYSQL_ROOT_PASSWORD: DigitalVault123
     volumes:
       - ./mariadb:/docker-entrypoint-initdb.d/:ro
