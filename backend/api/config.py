@@ -1,4 +1,5 @@
 import mysql.connector
+from mysql.connector import pooling
 #FastAPI Config
 TITLE = "DigitalVault"
 DESCRIPTION = "DigitalVault API"
@@ -9,15 +10,31 @@ SECRET_KEY = "DigitalVault123"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 #Database Config - host is mariadb - Password is DigitalVault123
-db_config = {
-        'user': 'root',
-        'password': 'DigitalVault123',
-        'host': 'mariadb',
-        'port': '3306',
-        'database': 'DigitalVault'
-    }
 
-db = mysql.connector.connect(**db_config)
+
+def connectDB():
+    db_config = {
+            'user': 'root',
+            'password': 'DigitalVault123',
+            'host': 'mariadb',
+            'port': '3306',
+            'database': 'DigitalVault'
+        }
+    try:
+        dbPoolSize = 3
+        dbPool = pooling.MySQLConnectionPool(pool_name="pool",
+                                            pool_size=dbPoolSize,
+                                            pool_reset_session=True,
+                                            **db_config)
+        db = dbPool.get_connection()
+        print("[OK] Successfully connected to the database.")
+    except:
+        print("[ERROR] Failed to connect to the database.")
+        return None
+    return db
+    
+db = connectDB()
+
 
 # def createTables():
 #      cursor = db.cursor()
