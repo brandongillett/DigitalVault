@@ -3,9 +3,12 @@ from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from .config import SECRET_KEY,ALGORITHM,db
+from .config import SECRET_KEY,ALGORITHM,db_config,connectDB
 from .models import UserInDb,TokenData
 from validate_email import validate_email
+
+dbConnection = connectDB(db_config)
+
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
@@ -17,6 +20,8 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def new_user(username: str, email: str, password: str):
+    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
     user=cursor.fetchone()
@@ -49,6 +54,8 @@ def new_user(username: str, email: str, password: str):
             return {"status":False,"message":"Email taken."}
 
 def get_user(username: str):
+    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
     user=cursor.fetchone()
