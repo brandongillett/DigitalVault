@@ -23,7 +23,7 @@ def connectDB(config):
         dbConnection = pooling.MySQLConnectionPool(pool_name="pool",
                                                     pool_size=3,
                                                     pool_reset_session=True,
-                                                    **db_config)
+                                                    **config)
         print("[OK] Successfully connected to the database.")
     except:
         print("[ERROR] Failed to connect to the database.")

@@ -36,7 +36,8 @@ def new_password(user: str,fernetKey: str,service: str,username: str,password: s
     if not service or not username or not password:
         return {"status":False,"message":"Service name required."} if not service else {"status":False,"message":"Username required."} if not username else {"status":False,"message":"Password required."}
     try:
-        if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+        global dbConnection
+        if not dbConnection: dbConnection = connectDB(db_config)
         db = dbConnection.get_connection()
         data = encryptData(fernetKey,{'service':service,'username':username,'password':password,'notes':notes})
         cursor = db.cursor()
@@ -48,7 +49,8 @@ def new_password(user: str,fernetKey: str,service: str,username: str,password: s
         return {"status":False,"message":"An error has occured."}
 
 def edit_password(user: str,passId,fernetKey: str,service: str,username: str,password: str,notes: str):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
@@ -66,7 +68,8 @@ def edit_password(user: str,passId,fernetKey: str,service: str,username: str,pas
         return {"status":False,"message":"Unable to retreive password."}
 
 def get_passwords(user: str,fernetKey: str):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute('SELECT * FROM Passwords WHERE userId="{}"'.format(user.id))
@@ -80,7 +83,8 @@ def get_passwords(user: str,fernetKey: str):
         return data
 
 def del_password(user: str,passId):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
@@ -100,7 +104,8 @@ def new_card(user: str,fernetKey: str,cardType: str,cardNumber: str,expiration: 
     if not cardNumber:
         return {"status":False,"message":"Card Number required."}
 
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     data = encryptData(fernetKey,{'cardType':cardType,'cardNumber':cardNumber,'expiration':expiration,'cvc':cvc})
     cursor = db.cursor()
@@ -110,7 +115,8 @@ def new_card(user: str,fernetKey: str,cardType: str,cardNumber: str,expiration: 
     return {"status":True,"message":f"Credit Card Saved."}
 
 def edit_card(user: str,cardId,fernetKey: str,cardType: str,cardNumber: str,expiration: str,cvc: str):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
@@ -128,7 +134,8 @@ def edit_card(user: str,cardId,fernetKey: str,cardType: str,cardNumber: str,expi
         return {"status":False,"message":"Unable to retreive card."}
     
 def get_cards(user: str,fernetKey: str):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute('SELECT * FROM CreditCards WHERE userId="{}"'.format(user.id))
@@ -142,7 +149,8 @@ def get_cards(user: str,fernetKey: str):
         return data
     
 def del_card(user: str,cardId):
-    if not dbConnection: global dbConnection; dbConnection = connectDB(db_config)
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
     cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
