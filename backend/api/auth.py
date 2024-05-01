@@ -23,43 +23,44 @@ def new_user(username: str, email: str, password: str):
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
-    user=cursor.fetchone()
-    cursor.execute('SELECT * FROM Users WHERE email="{}"'.format(email))
-    em=cursor.fetchone()
-    if not validate_email(email):
+    try:
+        cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
+        user=cursor.fetchone()
+        cursor.execute('SELECT * FROM Users WHERE email="{}"'.format(email))
+        em=cursor.fetchone()
+        if not validate_email(email):
+            return {"status":False,"message":"Invalid Email."}
+        if len(password) < 8:
+            return {"status":False,"message":"Password too short. (Min 8 characters)"}
+        if len(username) > 30 or len(username) < 3:
+            return {"status":False,"message":"Username too short. (Min 6 characters)"} if len(username) < 6 else {"status":False,"message":"Username too long. (Max 30 characters)"}
+        if not user and not em:
+            try:
+                cursor = db.cursor()
+                cursor.execute('INSERT INTO Users(username,email,disabled,password) VALUES(%s,%s,%s,%s)',(username,email,0,get_password_hash(password)))
+                db.commit()
+                return {"status":True,"message":f"{username} Created"}
+            except:
+                return {"status":False,"message":"An error has occured."}
+        else:
+            if user:
+                return {"status":False,"message":"Username taken."}
+            elif em:
+                return {"status":False,"message":"Email taken."}
+    finally:
         cursor.close()
-        return {"status":False,"message":"Invalid Email."}
-    if len(password) < 8:
-        cursor.close()
-        return {"status":False,"message":"Password too short. (Min 8 characters)"}
-    if len(username) > 30 or len(username) < 3:
-        cursor.close()
-        return {"status":False,"message":"Username too short. (Min 6 characters)"} if len(username) < 6 else {"status":False,"message":"Username too long. (Max 30 characters)"}
-    if not user and not em:
-        try:
-            cursor = db.cursor()
-            cursor.execute('INSERT INTO Users(username,email,disabled,password) VALUES(%s,%s,%s,%s)',(username,email,0,get_password_hash(password)))
-            cursor.close()
-            db.commit()
-            return {"status":True,"message":f"{username} Created"}
-        except:
-            return {"status":False,"message":"An error has occured."}
-    else:
-        if user:
-            cursor.close()
-            return {"status":False,"message":"Username taken."}
-        elif em:
-            cursor.close()
-            return {"status":False,"message":"Email taken."}
-
+        db.close()
 def get_user(username: str):
     global dbConnection
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
-    user=cursor.fetchone()
+    try:
+        cursor.execute('SELECT * FROM Users WHERE username="{}"'.format(username))
+        user=cursor.fetchone()
+    finally:
+        cursor.close()
+        db.close()
     if user:
         user_data = {
             "id": user[0],
@@ -69,6 +70,7 @@ def get_user(username: str):
             "password": user[4],
         }
         return UserInDb(**user_data)
+
     
 def authenticate_user(username: str, password: str):
     user = get_user(username)
