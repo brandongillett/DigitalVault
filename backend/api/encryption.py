@@ -35,46 +35,54 @@ def decryptData(key,data):
 def new_password(user: str,fernetKey: str,service: str,username: str,password: str,notes: str):
     if not service or not username or not password:
         return {"status":False,"message":"Service name required."} if not service else {"status":False,"message":"Username required."} if not username else {"status":False,"message":"Password required."}
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
+    db = dbConnection.get_connection()
+    cursor = db.cursor()
     try:
-        global dbConnection
-        if not dbConnection: dbConnection = connectDB(db_config)
-        db = dbConnection.get_connection()
         data = encryptData(fernetKey,{'service':service,'username':username,'password':password,'notes':notes})
-        cursor = db.cursor()
         cursor.execute('INSERT INTO Passwords (userId,service,username,password,notes) VALUES (%s,%s,%s,%s,%s)',(user.id,data['service'],data['username'],data['password'],data['notes']))
-        cursor.close()
         db.commit()
         return {"status":True,"message":f"Password Saved."}
     except:
         return {"status":False,"message":"An error has occured."}
+    finally:
+        cursor.close()
+        db.close()
 
 def edit_password(user: str,passId,fernetKey: str,service: str,username: str,password: str,notes: str):
     global dbConnection
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
-    userId=cursor.fetchone()
-    if(userId and user.id == userId[0]):
-        try:
-            data = encryptData(fernetKey,{'service':service,'username':username,'password':password,'notes':notes})
-            cursor.execute('UPDATE Passwords SET service="%s", username="%s", password="%s", notes="%s" WHERE userId="%s" AND id="%s"',(data['service'],data['username'],data['password'],data['notes'],user.id,passId))
-            cursor.close()
-            db.commit()
-            return {"status":True,"message":f"Password Saved."}
-        except:
-            return {"status":False,"message":"An error has occured."}
-    else:
-        return {"status":False,"message":"Unable to retreive password."}
+    try:
+        cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
+        userId=cursor.fetchone()
+        if(userId and user.id == userId[0]):
+            try:
+                data = encryptData(fernetKey,{'service':service,'username':username,'password':password,'notes':notes})
+                cursor.execute('UPDATE Passwords SET service="%s", username="%s", password="%s", notes="%s" WHERE userId="%s" AND id="%s"',(data['service'],data['username'],data['password'],data['notes'],user.id,passId))
+                db.commit()
+                return {"status":True,"message":f"Password Saved."}
+            except:
+                return {"status":False,"message":"An error has occured."}
+        else:
+            return {"status":False,"message":"Unable to retreive password."}
+    finally:
+        cursor.close()
+        db.close()
 
 def get_passwords(user: str,fernetKey: str):
     global dbConnection
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM Passwords WHERE userId="{}"'.format(user.id))
-    info=cursor.fetchall()
-    cursor.close()
+    try:
+        cursor.execute('SELECT * FROM Passwords WHERE userId="{}"'.format(user.id))
+        info=cursor.fetchall()
+    finally:
+        cursor.close()
+        db.close()
     passwords = []
     if info:
         for i in info:
@@ -87,18 +95,21 @@ def del_password(user: str,passId):
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
-    userId=cursor.fetchone()
-    if(userId and user.id == userId[0]):
-        try:
-            cursor.execute(f'Delete FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
-            cursor.close()
-            db.commit()
-            return {"status":True,"message":f"Password Deleted."}
-        except:
-            return {"status":False,"message":"An error has occured."}
-    else:
-        return {"status":False,"message":"Unable to retreive password."}
+    try:
+        cursor.execute(f'Select userId FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
+        userId=cursor.fetchone()
+        if(userId and user.id == userId[0]):
+            try:
+                cursor.execute(f'Delete FROM Passwords WHERE userId="{user.id}" AND id="{passId}"')
+                db.commit()
+                return {"status":True,"message":f"Password Deleted."}
+            except:
+                return {"status":False,"message":"An error has occured."}
+        else:
+            return {"status":False,"message":"Unable to retreive password."}
+    finally:
+        cursor.close()
+        db.close()
 
 def new_card(user: str,fernetKey: str,cardType: str,cardNumber: str,expiration: str,cvc: str):
     if not cardNumber:
@@ -107,11 +118,14 @@ def new_card(user: str,fernetKey: str,cardType: str,cardNumber: str,expiration: 
     global dbConnection
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
-    data = encryptData(fernetKey,{'cardType':cardType,'cardNumber':cardNumber,'expiration':expiration,'cvc':cvc})
     cursor = db.cursor()
-    cursor.execute('INSERT INTO CreditCards (userId,cardType,cardNumber,expiration,cvc) VALUES (%s,%s,%s,%s,%s)',(user.id,data['cardType'],data['cardNumber'],data['expiration'],data['cvc']))
-    cursor.close()
-    db.commit()
+    try:
+        data = encryptData(fernetKey,{'cardType':cardType,'cardNumber':cardNumber,'expiration':expiration,'cvc':cvc})
+        cursor.execute('INSERT INTO CreditCards (userId,cardType,cardNumber,expiration,cvc) VALUES (%s,%s,%s,%s,%s)',(user.id,data['cardType'],data['cardNumber'],data['expiration'],data['cvc']))
+        db.commit()
+    finally:
+        cursor.close()
+        db.close()
     return {"status":True,"message":f"Credit Card Saved."}
 
 def edit_card(user: str,cardId,fernetKey: str,cardType: str,cardNumber: str,expiration: str,cvc: str):
@@ -119,28 +133,34 @@ def edit_card(user: str,cardId,fernetKey: str,cardType: str,cardNumber: str,expi
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
-    userId=cursor.fetchone()
-    if(userId and user.id == userId[0]):
-        try:
-            data = encryptData(fernetKey,{'cardType':cardType,'cardNumber':cardNumber,'expiration':expiration,'cvc':cvc})
-            cursor.execute('UPDATE CreditCards SET cardType="%s", cardNumber="%s", expiration="%s", cvc="%s" WHERE userId="%s" AND id="%s"',(data['cardType'],data['cardNumber'],data['expiration'],data['cvc'],user.id,cardId))
-            cursor.close()
-            db.commit()
-            return {"status":True,"message":f"Credit Card Saved."}
-        except:
-            return {"status":False,"message":"An error has occured."}
-    else:
-        return {"status":False,"message":"Unable to retreive card."}
+    try:
+        cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
+        userId=cursor.fetchone()
+        if(userId and user.id == userId[0]):
+            try:
+                data = encryptData(fernetKey,{'cardType':cardType,'cardNumber':cardNumber,'expiration':expiration,'cvc':cvc})
+                cursor.execute('UPDATE CreditCards SET cardType="%s", cardNumber="%s", expiration="%s", cvc="%s" WHERE userId="%s" AND id="%s"',(data['cardType'],data['cardNumber'],data['expiration'],data['cvc'],user.id,cardId))
+                db.commit()
+                return {"status":True,"message":f"Credit Card Saved."}
+            except:
+                return {"status":False,"message":"An error has occured."}
+        else:
+            return {"status":False,"message":"Unable to retreive card."}
+    finally:
+        cursor.close()
+        db.close()
     
 def get_cards(user: str,fernetKey: str):
     global dbConnection
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM CreditCards WHERE userId="{}"'.format(user.id))
-    info=cursor.fetchall()
-    cursor.close()
+    try:
+        cursor.execute('SELECT * FROM CreditCards WHERE userId="{}"'.format(user.id))
+        info=cursor.fetchall()
+    finally:
+        cursor.close()
+        db.close()
     cards = []
     if info:
         for i in info:
@@ -153,15 +173,18 @@ def del_card(user: str,cardId):
     if not dbConnection: dbConnection = connectDB(db_config)
     db = dbConnection.get_connection()
     cursor = db.cursor()
-    cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
-    userId=cursor.fetchone()
-    if(userId and user.id == userId[0]):
-        try:
-            cursor.execute(f'Delete FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
-            cursor.close()
-            db.commit()
-            return {"status":True,"message":f"Credit Card Deleted."}
-        except:
-            return {"status":False,"message":"An error has occured."}
-    else:
-        return {"status":False,"message":"Unable to retreive card."}
+    try:
+        cursor.execute(f'Select userId FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
+        userId=cursor.fetchone()
+        if(userId and user.id == userId[0]):
+            try:
+                cursor.execute(f'Delete FROM CreditCards WHERE userId="{user.id}" AND id="{cardId}"')
+                db.commit()
+                return {"status":True,"message":f"Credit Card Deleted."}
+            except:
+                return {"status":False,"message":"An error has occured."}
+        else:
+            return {"status":False,"message":"Unable to retreive card."}
+    finally:
+        cursor.close()
+        db.close()
