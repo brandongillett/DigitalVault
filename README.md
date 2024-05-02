@@ -13,6 +13,8 @@
       This project demonstrates the use of my development skills to create a backend API that enables secure communication across multiple platforms. It incorporates industry-standard practices and production-level tactics, ensuring its readiness for deployment on an industry-wide scale. Leveraging Docker, the project follows industry-level standards for containerization, making it easily deployable on a server for seamless deployment and scalability.
       <br>
   </p>
+  ![image](https://github.com/brandongillett/DigitalVault/assets/82180479/da325d93-3c12-4532-b0dc-4b3735c82c09)
+
   </h3>
 
 ## 📝 Table of Contents
