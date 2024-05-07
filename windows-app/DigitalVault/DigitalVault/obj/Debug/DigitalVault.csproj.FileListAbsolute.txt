@@ -8,3 +8,35 @@ C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\
 C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.CoreCompileInputs.cache
 C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.exe
 C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.pdb
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe.config
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.pdb
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.AssemblyReference.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.Properties.Resources.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.GenerateResource.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.CoreCompileInputs.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.pdb
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.DigitalVault.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.CopyComplete
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.Form2.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\MetroFramework.dll
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\MetroFramework.Fonts.dll
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe.config
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.exe
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\DigitalVault.pdb
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\MetroFramework.dll
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\MetroFramework.Fonts.dll
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\Newtonsoft.Json.dll
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Debug\Newtonsoft.Json.xml
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.AssemblyReference.cache
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.DigitalVault.resources
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.Form2.resources
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.Properties.Resources.resources
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.GenerateResource.cache
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.csproj.CoreCompileInputs.cache
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalV.DF727C68.Up2Date
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.exe
+Z:\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Debug\DigitalVault.pdb

@@ -19,7 +19,6 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
         access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
         access_token = create_access_token(
         data={"sub":user.username}, expires_delta=access_token_expires)
-        print(genFernetKey(form_data.password))
         return {'status':True,"access_token":access_token,"token_type":"bearer","fernet_key":genFernetKey(form_data.password)}
     else:
         return {'status':False,"message":"Invalid credentials."}
