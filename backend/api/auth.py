@@ -6,11 +6,39 @@ from passlib.context import CryptContext
 from .config import SECRET_KEY,ALGORITHM,db_config,connectDB
 from .models import UserInDb,TokenData
 from validate_email import validate_email
+import time
 
 dbConnection = connectDB(db_config)
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+
+def getTimestamp(user: str):
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
+    db = dbConnection.get_connection()
+    cursor = db.cursor()
+    try:
+        cursor.execute(f'SELECT last_update FROM Users WHERE id={user.id}')
+        timestamp=cursor.fetchone()
+    except:
+        return "NULL"
+    finally:
+        cursor.close()
+        db.close()
+    return timestamp[0]
+
+def updateTimestamp(user: str):
+    global dbConnection
+    if not dbConnection: dbConnection = connectDB(db_config)
+    db = dbConnection.get_connection()
+    cursor = db.cursor()
+    try:
+        cursor.execute('UPDATE Users SET last_update=%s WHERE id=%s',(time.time(),user.id))
+        db.commit()
+    finally:
+        cursor.close()
+        db.close()
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)

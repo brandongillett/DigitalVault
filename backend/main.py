@@ -2,7 +2,7 @@ from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from datetime import timedelta
 from api.models import Token,User,NewUser
-from api.auth import get_current_active_user,authenticate_user,create_access_token,new_user
+from api.auth import get_current_active_user,authenticate_user,create_access_token,new_user,updateTimestamp,getTimestamp
 from api.encryption import new_password,get_passwords,del_password,edit_password,genFernetKey,new_card,edit_card,get_cards,del_card
 from api.config import ACCESS_TOKEN_EXPIRE_MINUTES,TITLE,DESCRIPTION,VERSION,DOCS
 
@@ -27,12 +27,18 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 async def user_credentials(current_user: User = Depends(get_current_active_user)):
     return current_user
 
+@app.get("/users/me/getTimestamp")
+async def user_timestamp(current_user: User = Depends(get_current_active_user)):
+    return getTimestamp(current_user)
+
 @app.post("/users/me/newPassword")
 async def user_addPass(fernetKey: str,service: str,username: str,password: str,notes: str,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return new_password(current_user,fernetKey,service,username,password,notes)
 
 @app.put("/users/me/editPassword")
 async def user_editPassword(fernetKey: str,passId: int,service: str,username: str,password: str,notes: str,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return edit_password(current_user,passId,fernetKey,service,username,password,notes)
 
 @app.get("/users/me/getPasswords")
@@ -41,14 +47,17 @@ async def user_getPasswords(fernetKey: str,current_user: User = Depends(get_curr
 
 @app.delete("/users/me/delPassword")
 async def user_delPassword(passId: int,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return del_password(current_user,passId)
 
 @app.post("/users/me/newCard")
 async def user_addCard(fernetKey: str,cardType: str,cardNumber: str,expiration: str,cvc: str,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return new_card(current_user,fernetKey,cardType,cardNumber,expiration,cvc)
 
 @app.put("/users/me/editCard")
 async def user_editCard(fernetKey: str,cardId: int,cardType: str,cardNumber: str,expiration: str,cvc: str,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return edit_card(current_user,cardId,fernetKey,cardType,cardNumber,expiration,cvc)
 
 @app.get("/users/me/getCards")
@@ -57,4 +66,5 @@ async def user_getCards(fernetKey: str,current_user: User = Depends(get_current_
 
 @app.delete("/users/me/delCard")
 async def user_delCard(cardId: int,current_user: User = Depends(get_current_active_user)):
+    updateTimestamp(current_user)
     return del_card(current_user,cardId)
