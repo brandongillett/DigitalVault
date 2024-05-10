@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVault", "DigitalVault\DigitalVault.csproj", "{36E10D50-4EDB-45BD-ABFF-305D6C887295}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DigitalVaultInstaller", "DigitalVaultInstaller\DigitalVaultInstaller.vdproj", "{37578936-4D79-4413-B61B-B26BEF6DAE45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{36E10D50-4EDB-45BD-ABFF-305D6C887295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E10D50-4EDB-45BD-ABFF-305D6C887295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36E10D50-4EDB-45BD-ABFF-305D6C887295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37578936-4D79-4413-B61B-B26BEF6DAE45}.Debug|Any CPU.ActiveCfg = Debug
+		{37578936-4D79-4413-B61B-B26BEF6DAE45}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

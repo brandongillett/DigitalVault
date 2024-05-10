@@ -1,0 +1,16 @@
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\DigitalVault.exe.config
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\DigitalVault.pdb
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\MetroFramework.dll
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\MetroFramework.Fonts.dll
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\Newtonsoft.Json.dll
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\bin\Release\Newtonsoft.Json.xml
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.csproj.AssemblyReference.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.DigitalVault.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.Form2.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.Properties.Resources.resources
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.csproj.GenerateResource.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.csproj.CoreCompileInputs.cache
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.csproj.CopyComplete
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.exe
+C:\Users\brand\Dropbox (CSU Fullerton)\Mac\Documents\Code\projects\DigitalVault\DigitalVault\windows-app\DigitalVault\DigitalVault\obj\Release\DigitalVault.pdb
