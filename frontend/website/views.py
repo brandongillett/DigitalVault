@@ -1,5 +1,5 @@
 import requests
-from flask import Blueprint, render_template, request, flash, redirect, url_for, session
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session, send_file
 from flask_login import login_user,login_required,logout_user,current_user
 from .config import API_ADDRESS
 from .models import User
@@ -176,3 +176,7 @@ def delete_card():
         else:
             flash('An error occurred while trying to delete the card.', category='error')
     return redirect(url_for('views.dash_cards'))
+
+@views.route('/download')
+def download():
+    return send_file('./installers/windows_x86/DigitalVaultInstaller.msi', as_attachment=True)

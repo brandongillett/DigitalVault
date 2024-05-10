@@ -17,54 +17,59 @@ namespace DigitalVault
 
     public partial class DigitalVault : Form
     {
+        private readonly HttpClient _httpClient;
+        private static readonly string apiAddress = "http://digitalvault.eastus.cloudapp.azure.com:8000";
         public DigitalVault()
         {
             InitializeComponent();
+            _httpClient = new HttpClient();
         }
-        private void login(string username,string password)
+        private void login(string apiAddress,string username,string password,bool remember)
         {
-            string apiAddress = "http://digitalvault.eastus.cloudapp.azure.com:8000";
-            var httpClient = new HttpClient();
-            var url = $"{apiAddress}/login";
+            try{
+                var url = $"{apiAddress}/login";
+                var content = new StringContent($"grant_type=&username={username}&password={password}&scope=&client_id=&client_secret=", Encoding.UTF8, "application/x-www-form-urlencoded");
 
-            var content = new StringContent($"grant_type=&username={username}&password={password}&scope=&client_id=&client_secret=", Encoding.UTF8, "application/x-www-form-urlencoded");
+                var response = _httpClient.PostAsync(url, content).Result;
+                var responseContent = response.Content.ReadAsStringAsync().Result;
 
-            var response = httpClient.PostAsync(url, content).Result;
-            var responseContent = response.Content.ReadAsStringAsync().Result;
+                dynamic json = JsonConvert.DeserializeObject(responseContent);
 
-            dynamic json = JsonConvert.DeserializeObject(responseContent);
-
-            if (json.status == true)
-            {
-                if (rememberCheck.Checked)
+                if (json.status == true)
                 {
-                    Properties.Settings.Default.username = usernameInput.Text;
-                    Properties.Settings.Default.Save();
+                    if (remember)
+                    {
+                        Properties.Settings.Default.username = usernameInput.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.username = "";
+                        Properties.Settings.Default.Save();
+                    }
+
+                    string token = json.access_token;
+                    string fernetKey = json.fernet_key;
+
+                    Form2 form2 = new Form2(token, fernetKey);
+                    form2.Show();
+
+                    this.Close();
                 }
                 else
                 {
-                    Properties.Settings.Default.username = "";
-                    Properties.Settings.Default.Save();
+                    if (json.message != null)
+                    {
+                        string message = json.message;
+                        MessageBox.Show(message);
+                    }
                 }
-
-                string token = json.access_token;
-                string fernetKey = json.fernet_key;
-
-                Form2 form2 = new Form2(token,fernetKey);
-                form2.Show();
-
-                this.Close();
-                return;
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("An error occurred while logging in.");
-                if (json.message != null)
-                {
-                    //MessageBox.Show(json.message);
-                }
-                return;
+                MessageBox.Show("An error has occured.");
             }
+            return;
         }
 
         private void DigitalVault_Load(object sender, EventArgs e)
@@ -82,7 +87,7 @@ namespace DigitalVault
         {
             string username = usernameInput.Text;
             string password = passwordInput.Text;
-            login(username, password);
+            login(apiAddress, username, password,rememberCheck.Checked);
 
         }
 

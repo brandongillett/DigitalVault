@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|z:\\code\\projects\\digitalvault\\digitalvault\\windows-app\\digitalvault\\digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|z:\\code\\projects\\digitalvault\\digitalvault\\windows-app\\digitalvault\\digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36E10D50-4EDB-45BD-ABFF-305D6C887295}|DigitalVault\\DigitalVault.csproj|solutionrelative:digitalvault\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +30,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.Designer.cs",
+              "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.Designer.cs",
+              "RelativeDocumentMoniker": "DigitalVault\\Form2.Designer.cs",
+              "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.Designer.cs",
+              "RelativeToolTip": "DigitalVault\\Form2.Designer.cs",
+              "ViewState": "AQIAAAUBAAAAAAAAAAAhwBMBAACCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T01:38:53.088Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs",
+              "RelativeDocumentMoniker": "DigitalVault\\Form2.cs",
+              "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs",
+              "RelativeToolTip": "DigitalVault\\Form2.cs",
+              "ViewState": "AQIAAJgAAACADQAAAAAYwKwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T07:12:21.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form2.cs [Design]",
               "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs",
               "RelativeDocumentMoniker": "DigitalVault\\Form2.cs",
               "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs [Design]",
               "RelativeToolTip": "DigitalVault\\Form2.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T07:12:21.168Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-06T07:12:21.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs",
-              "RelativeDocumentMoniker": "DigitalVault\\Form1.cs",
-              "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs [Design]",
-              "RelativeToolTip": "DigitalVault\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-05-06T07:12:21.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form2.cs",
-              "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs",
-              "RelativeDocumentMoniker": "DigitalVault\\Form2.cs",
-              "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form2.cs",
-              "RelativeToolTip": "DigitalVault\\Form2.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-05-06T07:12:21.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs",
               "RelativeDocumentMoniker": "DigitalVault\\Form1.cs",
               "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs",
               "RelativeToolTip": "DigitalVault\\Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-05-06T07:12:21.168Z"
+              "ViewState": "AQIAACcAAAAAaWZmZuYcwD0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T07:12:21.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs",
+              "RelativeDocumentMoniker": "DigitalVault\\Form1.cs",
+              "ToolTip": "Z:\\Code\\projects\\DigitalVault\\DigitalVault\\windows-app\\DigitalVault\\DigitalVault\\Form1.cs [Design]",
+              "RelativeToolTip": "DigitalVault\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T07:12:21.137Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
